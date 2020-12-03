@@ -4,9 +4,7 @@ var trees = 0
 let slopes = [(1,1), (1,3), (1,5), (1,7), (2,1)]
 var result = [Int]()
 for (deltaX, deltaY) in slopes{
-    var x = 0
-    var y = 0
-    var trees = 0
+    var x = 0, y = 0, trees = 0
     while x < lines.count{
         let yIndex = lines[x].index(lines[x].startIndex, offsetBy: y)
         if lines[x][yIndex] == "#"{
