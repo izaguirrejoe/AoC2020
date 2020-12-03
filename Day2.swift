@@ -18,7 +18,7 @@ for line in lines{
     
     let letter = letterString.first!
     
-    
+//    Part 1
 //    var totalChar = 0
 //    for char in password{
 //        if char == letter{
