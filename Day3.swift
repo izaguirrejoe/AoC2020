@@ -1,6 +1,5 @@
 //Day 1 is contained in here
 var lines = readTextFile(file: "day3", separatedBy: .newlines)
-var trees = 0
 let slopes = [(1,1), (1,3), (1,5), (1,7), (2,1)]
 var result = [Int]()
 for (deltaX, deltaY) in slopes{
