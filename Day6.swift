@@ -26,21 +26,17 @@ print(result)
 //Alternate solution
 import Foundation
 
-let lines = try String(contentsOfFile: "day6").components(separatedBy: .newlines)
-var result = 0
-var group = [Set<Character>]()
-for line in lines{
-    if line == ""{
-        let intersection = group.reduce(group.first!) {$0.intersection($1)}
-        result += intersection.count
-        group = [Set<Character>]()
-        continue
-    }
-    var passenger = Set<Character>()
-    for char in line{
-        passenger.insert(char)
-    }
-    group.append(passenger)
+let groups = try String(contentsOfFile: "day6").trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: "\n\n").map{$0.components(separatedBy: .newlines)}
+
+var partA = 0
+for group in groups{
+    partA += group.reduce(into: Set<Character>()) {$0.formUnion($1)}.count
 }
-print(result)
+print(partA)
+
+var partB = 0
+for group in groups{
+    partB += group.reduce(into: Set<Character>(group.first!)) {$0.formIntersection($1)}.count
+}
+print(partB)
 
