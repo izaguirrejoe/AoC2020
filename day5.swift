@@ -1,4 +1,3 @@
-
 let lines = try String(contentsOfFile: "day5").split(separator: "\n")
 var ids = [Int]()
 for boarding in lines{
@@ -35,3 +34,25 @@ for i in 0..<ids.count{
         print(ids[i]+1)
     }
 }
+
+//Alternate solution
+import Foundation
+
+let lines = try String(contentsOfFile: "day6").components(separatedBy: .newlines)
+var result = 0
+var group = [Set<Character>]()
+for line in lines{
+    if line == ""{
+        let intersection = group.reduce(group.first!) {$0.intersection($1)}
+        result += intersection.count
+        group = [Set<Character>]()
+        continue
+    }
+    var passenger = Set<Character>()
+    for char in line{
+        passenger.insert(char)
+    }
+    group.append(passenger)
+}
+print(result)
+
