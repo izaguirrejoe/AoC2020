@@ -23,20 +23,11 @@ for line in lines{
 
 print(result)
 
-//Alternate solution
-import Foundation
+//Alternate solutions
 
-let groups = try String(contentsOfFile: "day6").trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: "\n\n").map{$0.components(separatedBy: .newlines)}
+//Part A
+print(groups.reduce(0){$0 + $1.reduce(into: Set<Character>()){$0.formUnion($1)}.count})
 
-var partA = 0
-for group in groups{
-    partA += group.reduce(into: Set<Character>()) {$0.formUnion($1)}.count
-}
-print(partA)
-
-var partB = 0
-for group in groups{
-    partB += group.reduce(into: Set<Character>(group.first!)) {$0.formIntersection($1)}.count
-}
-print(partB)
+//Part B
+print(groups.reduce(0){$0 + $1.reduce(into: Set<Character>($1.first!)){$0.formIntersection($1)}.count})
 
