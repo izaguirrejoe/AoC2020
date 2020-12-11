@@ -26,7 +26,7 @@ for line in lines{
 }
 
 let s = Solution()
-print(s.helper(string: "shiny gold"))
+print(s.helper(string: "shiny gold")-1)
 
 
 //class Solution {
@@ -43,7 +43,6 @@ print(s.helper(string: "shiny gold"))
 
 class Solution {
     func helper(string: String) -> Int{
-        print("Here")
         var result = 1
         guard let contains = contains[string] else {return result}
         for (count, color) in contains{
