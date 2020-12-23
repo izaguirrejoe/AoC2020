@@ -18,7 +18,6 @@ instructions = input.split("\n\n").collect { |s| s.split("\n") }
 # puts "The total is #{total}."
 
 class Solution
-  attr_accessor :result
   def initialize()
     @result = []
   end
@@ -32,7 +31,6 @@ class Solution
     end
   end
 end
-
 
 memory = {  }
 instructions.each do |i|
