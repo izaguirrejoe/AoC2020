@@ -77,7 +77,7 @@ def possible_fields(map, nums)
   result
 end
 
-#Takes a 2-D matrix and returns the transpose as a hash
+#Takes a 2-D matrix and returns the transpose 
 def transpose(matrix)
   if matrix.empty? || matrix.first.empty?
     raise ArgumentError
